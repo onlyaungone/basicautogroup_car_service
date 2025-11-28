@@ -1,0 +1,17 @@
+{
+  "name": "basicautogroup_car_service",
+  "version": "1.0.0",
+  "description": "BASIC.AUTOGROUP car service booking experience",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"No automated tests specified\""
+  },
+  "dependencies": {
+    "sqlite3": "^5.1.7"
+  },
+  "keywords": ["car-service", "booking", "aws"],
+  "author": "",
+  "license": "ISC"
+}

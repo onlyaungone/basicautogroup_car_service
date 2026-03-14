@@ -6,147 +6,56 @@
   <title>BASIC.AUTOGROUP | Car Service Booking</title>
   <link rel="stylesheet" href="/styles.css" />
 </head>
-<body>
-  <header class="hero">
+<body data-page="home">
+  <header class="hero hero--home">
     <div class="hero__content">
-      <h1>BASIC.AUTOGROUP Service Centre</h1>
-      <p>Reliable, transparent servicing with flexible appointments and upfront pricing.</p>
+      <p class="eyebrow eyebrow--light">BASIC.AUTOGROUP Service Centre</p>
+      <h1>Book your car service in three clear steps.</h1>
+      <p>Choose the work, pick a time, and confirm your visit with transparent pricing the whole way through.</p>
       <div class="hero__actions">
-        <a class="btn primary" href="#booking">Book a service</a>
-        <a class="btn ghost" href="#services">See what's included</a>
+        <a class="btn primary" href="/services.html">Start booking</a>
+        <a class="btn ghost" href="/services.html">Browse services</a>
       </div>
     </div>
-    <div class="hero__badge">Trusted technicians &amp; AWS-backed scheduling</div>
   </header>
 
-  <main>
-    <section id="services" class="section">
-      <div class="section__header">
-        <p class="eyebrow">Services</p>
-        <h2>Choose the work you need</h2>
-        <p class="lede">Pick multiple services and edit anytime before checkout. All pricing includes GST.</p>
+  <main class="section section--narrow">
+    <div class="progress-strip">
+      <div class="progress-strip__item is-active">
+        <span>1</span>
+        <strong>Select services</strong>
       </div>
-      <div id="serviceList" class="cards"></div>
-    </section>
-
-    <section id="booking" class="section">
-      <div class="section__header">
-        <p class="eyebrow">Booking journey</p>
-        <h2>Three steps to lock in your visit</h2>
+      <div class="progress-strip__item">
+        <span>2</span>
+        <strong>Choose a time</strong>
       </div>
-      <div class="steps">
-        <div class="step">
-          <div class="step__title">1. Pick services</div>
-          <div id="selectedServices" class="selected-services empty">No services selected yet.</div>
-        </div>
-        <div class="step">
-          <div class="step__title">2. Choose date &amp; time</div>
-          <div class="time-picker">
-            <label for="dateInput">Select a date</label>
-            <input type="date" id="dateInput" />
-            <div class="time-picker__columns">
-              <div>
-                <h4>Morning</h4>
-                <div id="morningSlots" class="slot-grid"></div>
-              </div>
-              <div>
-                <h4>Afternoon</h4>
-                <div id="afternoonSlots" class="slot-grid"></div>
-              </div>
-            </div>
-            <p class="hint">Appointments are available from 8:00 AM – 3:00 PM. Taken times disappear instantly.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step__title">3. Checkout</div>
-          <form id="checkoutForm" class="checkout">
-            <div class="form-grid">
-              <div>
-                <label>First name<input required name="firstName" /></label>
-              </div>
-              <div>
-                <label>Last name<input required name="lastName" /></label>
-              </div>
-              <div>
-                <label>Email<input required type="email" name="email" /></label>
-              </div>
-              <div>
-                <label>Phone<input required name="phone" /></label>
-              </div>
-              <div>
-                <label>Postcode<input required name="postcode" /></label>
-              </div>
-              <div class="note-field">
-                <label>Appointment note <button type="button" id="addNote" class="link-btn">Add note</button></label>
-                <textarea name="note" id="noteInput" rows="3" placeholder="Any special requests or vehicle notes"></textarea>
-              </div>
-            </div>
-
-            <div class="policy">
-              <div class="policy__header">
-                <h4>Cancellation policy</h4>
-                <button type="button" id="togglePolicy" class="link-btn">See full policy</button>
-              </div>
-              <p id="policyPreview" class="policy__preview">Cancellations within 24 hours may incur a fee. Rescheduling is subject to availability.</p>
-              <div id="policyFull" class="policy__full">
-                <p>We understand plans change. To keep the workshop running smoothly:</p>
-                <ul>
-                  <li>Appointments cancelled within 24 hours may be subject to a $50 late-change fee.</li>
-                  <li>Rescheduling is free when requested more than 24 hours in advance.</li>
-                  <li>No-shows may require prepayment for future bookings.</li>
-                  <li>Your data is stored securely and backed up in AWS infrastructure.</li>
-                </ul>
-              </div>
-              <label class="policy__checkbox">
-                <input type="checkbox" id="policyAgree" />
-                <span>I have read and agreed to the cancellation policy of BASIC.AUTOGROUP.</span>
-              </label>
-              <p id="policyWarning" class="warning" aria-live="polite"></p>
-            </div>
-
-            <div class="payment">
-              <h4>Payment</h4>
-              <div class="form-grid">
-                <div>
-                  <label>Card number<input name="cardNumber" placeholder="4242 4242 4242 4242" /></label>
-                </div>
-                <div>
-                  <label>Expiry<input name="expiry" placeholder="MM/YY" /></label>
-                </div>
-                <div>
-                  <label>CVC<input name="cvc" placeholder="123" /></label>
-                </div>
-                <div>
-                  <label>Promotional code<input name="promo" id="promoInput" placeholder="SAVE10" /></label>
-                  <button type="button" class="btn ghost small" id="applyPromo">Apply code</button>
-                  <p id="promoFeedback" class="hint" aria-live="polite"></p>
-                </div>
-              </div>
-            </div>
-
-            <div class="summary" id="summary">
-              <div class="summary__row">
-                <span>Appointment</span>
-                <strong id="summaryAppointment">Select a date &amp; time</strong>
-              </div>
-              <div id="summaryServices"></div>
-              <div class="summary__row"><span>Subtotal</span><strong id="summarySubtotal">$0.00</strong></div>
-              <div class="summary__row"><span>Inclusive taxes (10%)</span><strong id="summaryTax">$0.00</strong></div>
-              <div class="summary__row"><span>Discounts</span><strong id="summaryDiscount">-$0.00</strong></div>
-              <div class="summary__total"><span>Total amount</span><strong id="summaryTotal">$0.00</strong></div>
-            </div>
-
-            <button type="submit" class="btn primary" id="confirmBooking">Confirm booking</button>
-            <p id="formMessage" class="status" aria-live="polite"></p>
-          </form>
-        </div>
+      <div class="progress-strip__item">
+        <span>3</span>
+        <strong>Checkout</strong>
       </div>
+    </div>
+
+    <section class="overview-grid">
+      <article class="overview-card">
+        <p class="eyebrow">Step 1</p>
+        <h2>Pick the work you need</h2>
+        <p>Select one or more services and see pricing before you commit.</p>
+      </article>
+      <article class="overview-card">
+        <p class="eyebrow">Step 2</p>
+        <h2>Choose the appointment</h2>
+        <p>Available morning and afternoon slots update live as bookings come in.</p>
+      </article>
+      <article class="overview-card">
+        <p class="eyebrow">Step 3</p>
+        <h2>Confirm your details</h2>
+        <p>Finish checkout with your contact details, payment, and any notes for the workshop.</p>
+      </article>
     </section>
   </main>
 
   <footer class="footer">
     <p>BASIC.AUTOGROUP Service Centre | Reliable care backed by AWS-hosted data and SQL-friendly APIs.</p>
   </footer>
-  <script src="/app.js"></script>
 </body>
 </html>

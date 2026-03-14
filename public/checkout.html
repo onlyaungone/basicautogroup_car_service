@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | BASIC.AUTOGROUP</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body data-page="checkout">
+  <main class="page-shell">
+    <section class="page-hero">
+      <a class="back-link" href="/schedule.html">&larr; Back to schedule</a>
+      <div class="page-hero__copy">
+        <p class="eyebrow">Step 3 of 3</p>
+        <h1>Confirm your booking</h1>
+        <p>Review the appointment, add your details, and submit the booking.</p>
+      </div>
+    </section>
+
+    <section class="journey-layout">
+      <div class="journey-main">
+        <form id="checkoutForm" class="checkout panel">
+          <div class="form-grid">
+            <div>
+              <label>First name<input required name="firstName" /></label>
+            </div>
+            <div>
+              <label>Last name<input required name="lastName" /></label>
+            </div>
+            <div>
+              <label>Email<input required type="email" name="email" /></label>
+            </div>
+            <div>
+              <label>Phone<input required name="phone" /></label>
+            </div>
+            <div>
+              <label>Postcode<input required name="postcode" /></label>
+            </div>
+            <div class="note-field">
+              <label>Appointment note</label>
+              <textarea name="note" id="noteInput" rows="3" placeholder="Any special requests or vehicle notes"></textarea>
+            </div>
+          </div>
+
+          <div class="policy">
+            <div class="policy__header">
+              <h3>Cancellation policy</h3>
+              <button type="button" id="togglePolicy" class="link-btn">See full policy</button>
+            </div>
+            <p id="policyPreview" class="policy__preview">Cancellations within 24 hours may incur a fee. Rescheduling is subject to availability.</p>
+            <div id="policyFull" class="policy__full">
+              <p>We understand plans change. To keep the workshop running smoothly:</p>
+              <ul>
+                <li>Appointments cancelled within 24 hours may be subject to a $50 late-change fee.</li>
+                <li>Rescheduling is free when requested more than 24 hours in advance.</li>
+                <li>No-shows may require prepayment for future bookings.</li>
+                <li>Your data is stored securely and backed up in AWS infrastructure.</li>
+              </ul>
+            </div>
+            <label class="policy__checkbox">
+              <input type="checkbox" id="policyAgree" />
+              <span>I have read and agreed to the cancellation policy of BASIC.AUTOGROUP.</span>
+            </label>
+            <p id="policyWarning" class="warning" aria-live="polite"></p>
+          </div>
+
+          <div class="payment">
+            <h3>Payment</h3>
+            <div class="form-grid">
+              <div>
+                <label>Card number<input name="cardNumber" placeholder="4242 4242 4242 4242" /></label>
+              </div>
+              <div>
+                <label>Expiry<input name="expiry" placeholder="MM/YY" /></label>
+              </div>
+              <div>
+                <label>CVC<input name="cvc" placeholder="123" /></label>
+              </div>
+              <div>
+                <label>Promotional code<input name="promo" id="promoInput" placeholder="SAVE10" /></label>
+                <button type="button" class="btn ghost small" id="applyPromo">Apply code</button>
+                <p id="promoFeedback" class="hint" aria-live="polite"></p>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn primary">Confirm booking</button>
+          <p id="formMessage" class="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <aside class="journey-side">
+        <div class="panel panel--dark">
+          <div class="summary__row">
+            <span>Appointment</span>
+            <strong id="summaryAppointment">Select a date and time</strong>
+          </div>
+          <div id="summaryServices"></div>
+          <div class="summary__row">
+            <span>Subtotal</span>
+            <strong id="summarySubtotal">$0.00</strong>
+          </div>
+          <div class="summary__row">
+            <span>Inclusive taxes (10%)</span>
+            <strong id="summaryTax">$0.00</strong>
+          </div>
+          <div class="summary__row">
+            <span>Discounts</span>
+            <strong id="summaryDiscount">-$0.00</strong>
+          </div>
+          <div class="summary__total">
+            <span>Total amount</span>
+            <strong id="summaryTotal">$0.00</strong>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

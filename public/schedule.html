@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choose Time | BASIC.AUTOGROUP</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body data-page="schedule">
+  <main class="page-shell">
+    <section class="page-hero">
+      <a class="back-link" href="/services.html">&larr; Back to services</a>
+      <div class="page-hero__copy">
+        <p class="eyebrow">Step 2 of 3</p>
+        <h1>Choose a date and time</h1>
+        <p>Morning and afternoon slots update live as appointments are taken.</p>
+      </div>
+    </section>
+
+    <section class="journey-layout">
+      <div class="journey-main">
+        <div class="panel">
+          <label for="dateInput">Select a date</label>
+          <input type="date" id="dateInput" />
+          <div class="time-picker__columns">
+            <div>
+              <h3>Morning</h3>
+              <div id="morningSlots" class="slot-grid"></div>
+            </div>
+            <div>
+              <h3>Afternoon</h3>
+              <div id="afternoonSlots" class="slot-grid"></div>
+            </div>
+          </div>
+          <p class="hint">Appointments are available from 8:00 AM to 3:00 PM. Choose one slot to continue.</p>
+        </div>
+      </div>
+      <aside class="journey-side">
+        <div class="panel">
+          <h2>Selected services</h2>
+          <div id="selectedServices" class="selected-services empty">No services selected yet.</div>
+        </div>
+        <div class="panel panel--dark">
+          <div class="summary__row">
+            <span>Appointment</span>
+            <strong id="summaryAppointment">Select a date and time</strong>
+          </div>
+          <div id="summaryServices"></div>
+          <div class="summary__row">
+            <span>Total</span>
+            <strong id="summaryTotal">$0.00</strong>
+          </div>
+        </div>
+        <a id="continueToCheckout" class="btn primary btn--wide is-disabled" href="/checkout.html" aria-disabled="true">Continue to checkout</a>
+      </aside>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

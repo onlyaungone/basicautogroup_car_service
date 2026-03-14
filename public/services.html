@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Select Services | BASIC.AUTOGROUP</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body data-page="services">
+  <main class="page-shell">
+    <section class="page-hero">
+      <a class="back-link" href="/index.html">&larr; Back to home</a>
+      <div class="page-hero__copy">
+        <p class="eyebrow">Step 1 of 3</p>
+        <h1>Select your services</h1>
+        <p>Build the booking before you move to the calendar.</p>
+      </div>
+    </section>
+
+    <section class="journey-layout">
+      <div class="journey-main">
+        <div id="serviceList" class="cards"></div>
+      </div>
+      <aside class="journey-side">
+        <div class="panel">
+          <h2>Your selection</h2>
+          <div id="selectedServices" class="selected-services empty">No services selected yet.</div>
+        </div>
+        <div class="panel panel--dark">
+          <div class="summary__row">
+            <span>Subtotal</span>
+            <strong id="summarySubtotal">$0.00</strong>
+          </div>
+          <div class="summary__row">
+            <span>Inclusive taxes (10%)</span>
+            <strong id="summaryTax">$0.00</strong>
+          </div>
+          <div class="summary__total">
+            <span>Estimated total</span>
+            <strong id="summaryTotal">$0.00</strong>
+          </div>
+        </div>
+        <a id="continueToSchedule" class="btn primary btn--wide is-disabled" href="/schedule.html" aria-disabled="true">Continue to schedule</a>
+      </aside>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -7,6 +7,19 @@
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body data-page="checkout">
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-brand" href="/index">
+        <img src="/BAG_logo_1.png" alt="BASIC.AUTOGROUP logo" />
+        <span>BASIC.AUTOGROUP</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="site-nav__link is-active" href="/services">Servicing</a>
+        <a class="site-nav__link" href="/about">About Us</a>
+        <a class="site-nav__link" href="/store">Store</a>
+      </nav>
+    </div>
+  </header>
   <main class="page-shell">
     <section class="page-hero">
       <a class="back-link" href="/schedule">&larr; Back to appointment</a>
@@ -32,28 +45,17 @@
             </div>
             <div>
               <label>Phone
-                <input
-                  required
-                  name="phone"
-                  type="tel"
-                  autocomplete="tel"
-                  inputmode="numeric"
-                  pattern="^[0-9]{10}$"
-                  minlength="10"
-                  maxlength="10"
-                  placeholder=""
-                  title="Enter a phone number."
-                />
+                <input required name="phone" type="tel" autocomplete="tel" inputmode="numeric" pattern="^[0-9]{10}$" minlength="10" maxlength="10" title="Enter a phone number." />
               </label>
             </div>
             <div>
-              <label>Address line 1<input required name="addressLine1" autocomplete="address-line1" placeholder="" /></label>
+              <label>Address line 1<input required name="addressLine1" autocomplete="address-line1" /></label>
             </div>
             <div>
               <label>Address line 2<input name="addressLine2" autocomplete="address-line2" placeholder="Unit, Suite, or Apartment" /></label>
             </div>
             <div>
-              <label>Suburb<input required name="suburb" autocomplete="address-level2" placeholder="" /></label>
+              <label>Suburb<input required name="suburb" autocomplete="address-level2" /></label>
             </div>
             <div>
               <label>State / Region
@@ -71,7 +73,7 @@
               </label>
             </div>
             <div>
-              <label>Postcode<input required name="postcode" autocomplete="postal-code" inputmode="numeric" pattern="^[0-9]{4}$" minlength="4" maxlength="4" placeholder="" title="Enter a 4 digit postcode." /></label>
+              <label>Postcode<input required name="postcode" autocomplete="postal-code" inputmode="numeric" pattern="^[0-9]{4}$" minlength="4" maxlength="4" title="Enter a 4 digit postcode." /></label>
             </div>
             <div class="note-field">
               <label>Appointment note</label>
@@ -107,16 +109,7 @@
             <div class="payment-field" data-field="cardNumber">
               <label>Card number</label>
               <div class="payment-input">
-                <input
-                  required
-                  name="cardNumber"
-                  inputmode="numeric"
-                  autocomplete="cc-number"
-                  pattern="^(?:[0-9]{4} ){3}[0-9]{4}$"
-                  maxlength="19"
-                  placeholder="0000 0000 0000 0000"
-                  title="Enter a valid card number."
-                />
+                <input required name="cardNumber" inputmode="numeric" autocomplete="cc-number" pattern="^(?:[0-9]{4} ){3}[0-9]{4}$" maxlength="19" placeholder="0000 0000 0000 0000" title="Enter a valid card number." />
                 <span class="payment-input__icon" aria-hidden="true"></span>
               </div>
               <p class="payment-help">Enter a valid card number</p>
@@ -131,15 +124,7 @@
               <div class="payment-field" data-field="expiry">
                 <label>Expiry date</label>
                 <div class="payment-input">
-                  <input
-                    required
-                    name="expiry"
-                    autocomplete="cc-exp"
-                    pattern="^(0[1-9]|1[0-2])\/[0-9]{2}$"
-                    maxlength="5"
-                    placeholder="MM/YY"
-                    title="Use MM/YY format."
-                  />
+                  <input required name="expiry" autocomplete="cc-exp" pattern="^(0[1-9]|1[0-2])\/[0-9]{2}$" maxlength="5" placeholder="MM/YY" title="Use MM/YY format." />
                   <span class="payment-input__icon" aria-hidden="true"></span>
                 </div>
                 <p class="payment-help">Front of card in MM/YY format</p>
@@ -147,17 +132,7 @@
               <div class="payment-field" data-field="cvc">
                 <label>Security code</label>
                 <div class="payment-input">
-                  <input
-                    required
-                    name="cvc"
-                    inputmode="numeric"
-                    autocomplete="cc-csc"
-                    pattern="^[0-9]{3,4}$"
-                    minlength="3"
-                    maxlength="4"
-                    placeholder="000"
-                    title="Enter a 3 or 4 digit CVC."
-                  />
+                  <input required name="cvc" inputmode="numeric" autocomplete="cc-csc" pattern="^[0-9]{3,4}$" minlength="3" maxlength="4" placeholder="000" title="Enter a 3 or 4 digit CVC." />
                   <span class="payment-input__icon" aria-hidden="true"></span>
                 </div>
                 <p class="payment-help">3 digits on back of card</p>
@@ -219,6 +194,12 @@
       </aside>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>BASIC.AUTOGROUP Service Centre | AUSTRALIA English &copy; ALL RIGHTS RESERVED. 2026</p>
+    </div>
+  </footer>
 
   <script src="/app.js"></script>
 </body>

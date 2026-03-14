@@ -10,7 +10,9 @@ const PAGE_ROUTES = new Set([
   'confirmation',
   'account',
   'appointments',
-  'appointment'
+  'appointment',
+  'about',
+  'store'
 ]);
 
 function sendJson(res, status, payload) {

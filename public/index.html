@@ -7,7 +7,21 @@
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body data-page="home">
-  <header class="hero hero--home">
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-brand" href="/index">
+        <img src="/BAG_logo_1.png" alt="BASIC.AUTOGROUP logo" />
+        <span>BASIC.AUTOGROUP</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="site-nav__link" href="/services">Servicing</a>
+        <a class="site-nav__link" href="/about">About Us</a>
+        <a class="site-nav__link" href="/store">Store</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero hero--home">
     <div class="hero__content">
       <p class="eyebrow eyebrow--light">BASIC.AUTOGROUP Service Centre</p>
       <h1>Book your car service in three clear steps.</h1>
@@ -17,7 +31,7 @@
         <a class="btn ghost" href="/account">My account</a>
       </div>
     </div>
-  </header>
+  </section>
 
   <main class="section section--narrow">
     <div class="progress-strip">
@@ -54,8 +68,10 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <p>BASIC.AUTOGROUP Service Centre | AUSTRALIA  English © ALL RIGHTS RESERVED. 2026</p>
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>BASIC.AUTOGROUP Service Centre | AUSTRALIA English &copy; ALL RIGHTS RESERVED. 2026</p>
+    </div>
   </footer>
 </body>
 </html>

@@ -8,7 +8,7 @@
 </head>
 <body data-page="account">
   <main class="auth-shell">
-    <a class="back-link" href="/index.html">&larr; Back to home</a>
+    <a class="back-link" href="/index">&larr; Back to home</a>
 
     <section class="auth-card">
       <div class="auth-tabs">
@@ -19,7 +19,14 @@
       <form id="signinForm" class="auth-form">
         <h1>SIGN IN</h1>
         <label class="auth-label">Email<input name="email" type="email" required autocomplete="email" /></label>
-        <label class="auth-label">Password<input name="password" type="password" required autocomplete="current-password" /></label>
+        <label class="auth-label">Password
+          <span class="password-field">
+            <input id="signinPassword" name="password" type="password" required autocomplete="current-password" />
+            <button class="password-toggle" type="button" data-target="signinPassword" aria-label="Show password">
+              <span class="password-toggle__icon" aria-hidden="true"></span>
+            </button>
+          </span>
+        </label>
         <div class="auth-row">
           <label class="auth-check"><input type="checkbox" /> Remember me</label>
           <span class="auth-link-muted">Forgot Password?</span>
@@ -35,12 +42,26 @@
         <label class="auth-label">First name<input name="firstName" required autocomplete="given-name" /></label>
         <label class="auth-label">Last name<input name="lastName" required autocomplete="family-name" /></label>
         <label class="auth-label">Email<input name="email" type="email" required autocomplete="email" /></label>
-        <label class="auth-label">Password<input id="signupPassword" name="password" type="password" required minlength="8" autocomplete="new-password" /></label>
+        <label class="auth-label">Password
+          <span class="password-field">
+            <input id="signupPassword" name="password" type="password" required minlength="8" autocomplete="new-password" />
+            <button class="password-toggle" type="button" data-target="signupPassword" aria-label="Show password">
+              <span class="password-toggle__icon" aria-hidden="true"></span>
+            </button>
+          </span>
+        </label>
         <div class="password-meter">
           <div id="passwordMeterFill" class="password-meter__fill"></div>
         </div>
         <p id="passwordStrength" class="auth-strength">Strength: Weak</p>
-        <label class="auth-label">Confirm password<input name="confirmPassword" type="password" required autocomplete="new-password" /></label>
+        <label class="auth-label">Confirm password
+          <span class="password-field">
+            <input id="signupConfirmPassword" name="confirmPassword" type="password" required autocomplete="new-password" />
+            <button class="password-toggle" type="button" data-target="signupConfirmPassword" aria-label="Show password">
+              <span class="password-toggle__icon" aria-hidden="true"></span>
+            </button>
+          </span>
+        </label>
         <label class="auth-check"><input type="checkbox" required /> I confirm I am over 16 years old and agree to the Privacy Policy.</label>
         <button class="btn auth-submit auth-submit--dark" type="submit">SUBMIT</button>
         <button class="btn auth-google" type="button">Sign in with Google</button>

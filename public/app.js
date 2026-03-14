@@ -444,7 +444,7 @@ async function renderServicesPage() {
 
 async function renderSchedulePage() {
   if (!canContinueFromServices()) {
-    window.location.href = '/services.html';
+    window.location.href = '/services';
     return;
   }
   await fetchServices();
@@ -603,7 +603,7 @@ function buildBookingNote() {
 
 async function renderCheckoutPage() {
   if (!canContinueFromAppointment()) {
-    window.location.href = '/schedule.html';
+    window.location.href = '/schedule';
     return;
   }
   await fetchServices();
@@ -671,13 +671,14 @@ async function renderCheckoutPage() {
     });
     window.sessionStorage.setItem(CONFIRMATION_KEY, JSON.stringify(data));
     window.sessionStorage.removeItem(STORAGE_KEY);
-    window.location.href = `/confirmation.html?id=${data.appointment.id}`;
+    window.location.href = `/confirmation?id=${data.appointment.id}`;
   });
 }
 
 function renderConfirmationPage() {
   const raw = window.sessionStorage.getItem(CONFIRMATION_KEY);
   const panel = document.getElementById('confirmationPanel');
+  const appointmentsLink = document.getElementById('confirmationAppointmentsLink');
   if (!raw) {
     panel.innerHTML = '<p class="status">No recent confirmation was found.</p>';
     return;
@@ -688,15 +689,22 @@ function renderConfirmationPage() {
     <p><strong>Drop-off:</strong> ${formatAppointment(data.appointment.date, data.appointment.time)}</p>
     <p><strong>Pick-up:</strong> ${formatAppointment(data.appointment.pickupDate, data.appointment.pickupTime)}</p>
     <p><strong>Total:</strong> ${formatCurrency(data.appointment.total)}</p>
-    <p><strong>Receipt outbox:</strong> ${data.receiptPath}</p>
   `;
+
+  getCurrentUser()
+    .then(user => {
+      appointmentsLink.href = user ? '/appointments' : '/account';
+    })
+    .catch(() => {
+      appointmentsLink.href = '/account';
+    });
 }
 
 async function renderAccountPage() {
   try {
     const user = await getCurrentUser();
     if (user) {
-      window.location.href = '/appointments.html';
+      window.location.href = '/appointments';
       return;
     }
   } catch (_error) {
@@ -729,6 +737,17 @@ async function renderAccountPage() {
   signupTab.addEventListener('click', showSignup);
   document.getElementById('switchToSignup').addEventListener('click', showSignup);
   document.getElementById('switchToSignin').addEventListener('click', showSignin);
+
+  document.querySelectorAll('.password-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const input = document.getElementById(button.dataset.target);
+      if (!input) return;
+      const showing = input.type === 'text';
+      input.type = showing ? 'password' : 'text';
+      button.classList.toggle('is-visible', !showing);
+      button.setAttribute('aria-label', showing ? 'Show password' : 'Hide password');
+    });
+  });
 
   passwordInput.addEventListener('input', event => {
     const value = event.target.value;
@@ -764,7 +783,7 @@ async function renderAccountPage() {
         })
       });
       document.getElementById('signupMessage').textContent = 'Account created. Redirecting to appointments...';
-      window.location.href = '/appointments.html';
+      window.location.href = '/appointments';
     } catch (error) {
       document.getElementById('signupMessage').textContent = error.message;
     }
@@ -782,7 +801,7 @@ async function renderAccountPage() {
         })
       });
       document.getElementById('signinMessage').textContent = 'Signed in. Redirecting...';
-      window.location.href = '/appointments.html';
+      window.location.href = '/appointments';
     } catch (error) {
       document.getElementById('signinMessage').textContent = error.message;
     }
@@ -810,18 +829,18 @@ async function renderAppointmentsPage() {
             <p>Drop-off: ${formatAppointment(appointment.date, appointment.time)}</p>
             <p>Pick-up: ${formatAppointment(appointment.pickupDate, appointment.pickupTime)}</p>
           </div>
-          <a class="btn primary" href="/appointment.html?id=${appointment.id}">View details</a>
+          <a class="btn primary" href="/appointment?id=${appointment.id}">View details</a>
         </article>
       `).join('');
   } catch (error) {
     document.getElementById('appointmentsMessage').textContent = error.message;
     document.getElementById('accountDetailsPanel').innerHTML = '';
-    document.getElementById('appointmentsList').innerHTML = '<div class="panel"><a class="btn primary" href="/account.html">Sign in</a></div>';
+    document.getElementById('appointmentsList').innerHTML = '<div class="panel"><a class="btn primary" href="/account">Sign in</a></div>';
   }
 
   document.getElementById('signOutButton').addEventListener('click', async () => {
     await api('/api/auth/signout', { method: 'POST', body: '{}' });
-    window.location.href = '/account.html';
+    window.location.href = '/account';
   });
 }
 

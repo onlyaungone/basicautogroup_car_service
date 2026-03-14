@@ -1,0 +1,53 @@
+{
+  "to": "zxc@gmail.com",
+  "subject": "Receipt for appointment #8",
+  "queuedAt": "2026-03-14T11:13:32.574Z",
+  "appointment": {
+    "id": 8,
+    "userId": 1,
+    "date": "2026-03-19",
+    "time": "12:00",
+    "pickupDate": "2026-03-19",
+    "pickupTime": "15:00",
+    "services": [
+      {
+        "id": 1,
+        "name": "Full Service",
+        "description": "Comprehensive inspection, oil change, filters, and fluid top-up.",
+        "price": 280
+      },
+      {
+        "id": 3,
+        "name": "Brake Inspection & Pads",
+        "description": "Brake health check with pad replacement where needed.",
+        "price": 180
+      }
+    ],
+    "subtotal": 460,
+    "tax": 46,
+    "discount": 0,
+    "total": 506,
+    "promoCode": null,
+    "firstName": "fbd",
+    "lastName": "dsafs",
+    "email": "zxc@gmail.com",
+    "phone": "1232131233",
+    "addressLine1": "12 dfsdfs",
+    "addressLine2": "",
+    "suburb": "fddsfs",
+    "stateRegion": "QLD",
+    "postcode": "1231",
+    "vehicle": {
+      "make": "sadsaf",
+      "model": "sadf",
+      "year": "2155",
+      "series": "fdsfa",
+      "odometer": "10000",
+      "lastServiceDate": "2026-03-04",
+      "registration": "dsa123"
+    },
+    "note": "Customer note: vdfbgfdhgh\nVehicle: 2155 sadsaf sadf fdsfa\nOdometer KMs: 10000\nLast Service Date: 2026-03-04\nRegistration: dsa123\nDrop-off: 12:00 2026-03-19\nPick-up: 15:00 2026-03-19\nAddress: 12 dfsdfs, fddsfs, QLD 1231",
+    "cancellationAgreed": true,
+    "createdAt": "2026-03-14T11:13:32.574Z"
+  }
+}

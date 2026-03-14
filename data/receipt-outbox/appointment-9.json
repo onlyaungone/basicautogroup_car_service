@@ -1,0 +1,53 @@
+{
+  "to": "zxc@gmail.com",
+  "subject": "Receipt for appointment #9",
+  "queuedAt": "2026-03-14T11:16:44.603Z",
+  "appointment": {
+    "id": 9,
+    "userId": null,
+    "date": "2026-03-25",
+    "time": "10:00",
+    "pickupDate": "2026-03-25",
+    "pickupTime": "13:30",
+    "services": [
+      {
+        "id": 2,
+        "name": "Logbook Service",
+        "description": "Manufacturer guideline service with genuine parts where required.",
+        "price": 220
+      },
+      {
+        "id": 4,
+        "name": "Tyre Rotation & Balance",
+        "description": "Rotation, balancing, and pressure check for even tyre wear.",
+        "price": 95
+      }
+    ],
+    "subtotal": 315,
+    "tax": 31.5,
+    "discount": 34.65,
+    "total": 311.85,
+    "promoCode": "SAVE10",
+    "firstName": "DSF",
+    "lastName": "SFAS",
+    "email": "zxc@gmail.com",
+    "phone": "2131232131",
+    "addressLine1": "423 qdfsdf",
+    "addressLine2": "",
+    "suburb": "fsdaf",
+    "stateRegion": "NT",
+    "postcode": "5000",
+    "vehicle": {
+      "make": "fdsf",
+      "model": "fsddf",
+      "year": "2133",
+      "series": "sfdsaf",
+      "odometer": "213213",
+      "lastServiceDate": "2026-03-01",
+      "registration": "DSF132"
+    },
+    "note": "Customer note: fsdgfdsgds\nVehicle: 2133 fdsf fsddf sfdsaf\nOdometer KMs: 213213\nLast Service Date: 2026-03-01\nRegistration: DSF132\nDrop-off: 10:00 2026-03-25\nPick-up: 13:30 2026-03-25\nAddress: 423 qdfsdf, fsdaf, NT 5000",
+    "cancellationAgreed": true,
+    "createdAt": "2026-03-14T11:16:44.603Z"
+  }
+}

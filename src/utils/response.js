@@ -2,6 +2,17 @@ const fs = require('fs');
 const path = require('path');
 const { PUBLIC_DIR } = require('../config');
 
+const PAGE_ROUTES = new Set([
+  'index',
+  'services',
+  'schedule',
+  'checkout',
+  'confirmation',
+  'account',
+  'appointments',
+  'appointment'
+]);
+
 function sendJson(res, status, payload) {
   res.writeHead(status, { 'Content-Type': 'application/json' });
   res.end(JSON.stringify(payload));
@@ -31,7 +42,17 @@ function sendFile(res, filePath) {
 }
 
 function resolvePublicPath(pathname) {
-  const filePath = pathname === '/' ? path.join(PUBLIC_DIR, 'index.html') : path.join(PUBLIC_DIR, pathname);
+  if (pathname === '/') {
+    return path.join(PUBLIC_DIR, 'index.html');
+  }
+
+  const normalized = pathname.replace(/^\/+/, '');
+  const routeName = normalized.endsWith('.html') ? normalized.slice(0, -5) : normalized;
+  const mappedPath = PAGE_ROUTES.has(routeName)
+    ? path.join(PUBLIC_DIR, `${routeName}.html`)
+    : path.join(PUBLIC_DIR, normalized);
+
+  const filePath = mappedPath;
   if (filePath.startsWith(PUBLIC_DIR) && fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
     return filePath;
   }

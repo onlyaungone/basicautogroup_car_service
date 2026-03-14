@@ -1,0 +1,53 @@
+{
+  "to": "zxc@gmail.com",
+  "subject": "Receipt for appointment #5",
+  "queuedAt": "2026-03-14T10:24:15.894Z",
+  "appointment": {
+    "id": 5,
+    "userId": 1,
+    "date": "2026-03-14",
+    "time": "12:30",
+    "pickupDate": "2026-03-15",
+    "pickupTime": "08:00",
+    "services": [
+      {
+        "id": 3,
+        "name": "Brake Inspection & Pads",
+        "description": "Brake health check with pad replacement where needed.",
+        "price": 180
+      },
+      {
+        "id": 4,
+        "name": "Tyre Rotation & Balance",
+        "description": "Rotation, balancing, and pressure check for even tyre wear.",
+        "price": 95
+      }
+    ],
+    "subtotal": 275,
+    "tax": 27.5,
+    "discount": 0,
+    "total": 302.5,
+    "promoCode": null,
+    "firstName": "fgdsfg",
+    "lastName": "fdsgdgs",
+    "email": "zxc@gmail.com",
+    "phone": "2131322313",
+    "addressLine1": "23 dsfdsfdf",
+    "addressLine2": "",
+    "suburb": "sfad",
+    "stateRegion": "TAS",
+    "postcode": "2424",
+    "vehicle": {
+      "make": "Love",
+      "model": "DD",
+      "year": "2055",
+      "series": "GG",
+      "odometer": "100000",
+      "lastServiceDate": "2026-03-04",
+      "registration": "ZXC123"
+    },
+    "note": "Customer note: bncnvcnnbcv\nVehicle: 2055 Love DD GG\nOdometer KMs: 100000\nLast Service Date: 2026-03-04\nRegistration: ZXC123\nDrop-off: 12:30 2026-03-14\nPick-up: 08:00 2026-03-15\nAddress: 23 dsfdsfdf, sfad, TAS 2424",
+    "cancellationAgreed": true,
+    "createdAt": "2026-03-14T10:24:15.894Z"
+  }
+}

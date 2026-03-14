@@ -12,21 +12,56 @@
       <a class="back-link" href="/index.html">&larr; Back to home</a>
       <div class="page-hero__copy">
         <p class="eyebrow">Step 1 of 3</p>
-        <h1>Select your services</h1>
-        <p>Build the booking before you move to the calendar.</p>
+        <h1>Select services</h1>
+        <p>Choose the work required and complete the vehicle information before moving to the appointment page.</p>
       </div>
     </section>
 
     <section class="journey-layout">
       <div class="journey-main">
-        <div id="serviceList" class="cards"></div>
+        <div class="panel">
+          <h2>Services</h2>
+          <div id="serviceList" class="cards"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Vehicle information</h2>
+          <div class="form-grid">
+            <div>
+              <label>Make<input id="vehicleMake" name="vehicleMake" placeholder="Toyota" /></label>
+            </div>
+            <div>
+              <label>Model<input id="vehicleModel" name="vehicleModel" placeholder="Corolla" /></label>
+            </div>
+            <div>
+              <label>Year<input id="vehicleYear" name="vehicleYear" inputmode="numeric" pattern="[0-9]*" placeholder="2022" /></label>
+            </div>
+            <div>
+              <label>Series<input id="vehicleSeries" name="vehicleSeries" placeholder="Ascent Sport" /></label>
+            </div>
+            <div>
+              <label>Odometer KMs<input id="vehicleOdometer" name="vehicleOdometer" inputmode="numeric" pattern="[0-9]*" placeholder="65000" /></label>
+            </div>
+            <div>
+              <label>Last Service date<input id="vehicleLastServiceDate" name="vehicleLastServiceDate" type="date" /></label>
+            </div>
+            <div>
+              <label>Registration number<input id="vehicleRegistration" name="vehicleRegistration" placeholder="ABC123" /></label>
+            </div>
+          </div>
+        </div>
       </div>
+
       <aside class="journey-side">
         <div class="panel">
           <h2>Your selection</h2>
           <div id="selectedServices" class="selected-services empty">No services selected yet.</div>
         </div>
         <div class="panel panel--dark">
+          <div class="summary__row">
+            <span>Vehicle</span>
+            <strong id="vehicleSummary">Add vehicle information</strong>
+          </div>
           <div class="summary__row">
             <span>Subtotal</span>
             <strong id="summarySubtotal">$0.00</strong>
@@ -40,7 +75,7 @@
             <strong id="summaryTotal">$0.00</strong>
           </div>
         </div>
-        <a id="continueToSchedule" class="btn primary btn--wide is-disabled" href="/schedule.html" aria-disabled="true">Continue to schedule</a>
+        <a id="continueToAppointment" class="btn primary btn--wide is-disabled" href="/schedule.html" aria-disabled="true">Continue to appointment</a>
       </aside>
     </section>
   </main>

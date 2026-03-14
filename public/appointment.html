@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appointment Detail | BASIC.AUTOGROUP</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body data-page="appointment-detail">
+  <main class="page-shell">
+    <section class="page-hero">
+      <a class="back-link" href="/appointments.html">&larr; Back to appointments</a>
+      <div class="page-hero__copy">
+        <p class="eyebrow">Appointment detail</p>
+        <h1>Manage your appointment</h1>
+        <p>Cancel before the appointment date, or reschedule to a future slot. Cancelling within 24 hours adds a $50 late-change fee.</p>
+      </div>
+    </section>
+
+    <section class="journey-layout">
+      <div class="journey-main">
+        <div id="appointmentDetailPanel" class="panel"></div>
+        <form id="rescheduleForm" class="panel checkout">
+          <h2>Reschedule</h2>
+          <div class="form-grid">
+            <div><label>New drop-off date<input name="date" type="date" required /></label></div>
+            <div><label>New drop-off time<input name="time" type="time" required /></label></div>
+            <div><label>New pick-up date<input name="pickupDate" type="date" required /></label></div>
+            <div><label>New pick-up time<input name="pickupTime" type="time" required /></label></div>
+          </div>
+          <button class="btn primary" type="submit">Update appointment</button>
+          <button id="cancelAppointmentButton" class="btn ghost" type="button">Cancel appointment</button>
+          <p id="appointmentActionMessage" class="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

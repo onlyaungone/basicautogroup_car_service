@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Appointments | BASIC.AUTOGROUP</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body data-page="appointments">
+  <main class="page-shell">
+    <section class="page-hero">
+      <a class="back-link" href="/index.html">&larr; Back to home</a>
+      <div class="page-hero__copy">
+        <p class="eyebrow">My appointments</p>
+        <h1>Appointment history</h1>
+        <p>Review your booking details, cancel before the appointment date, or reschedule to a future slot.</p>
+      </div>
+    </section>
+
+    <section class="journey-layout">
+      <div class="journey-main">
+        <div id="accountDetailsPanel" class="panel"></div>
+        <div id="appointmentsList" class="cards"></div>
+      </div>
+      <aside class="journey-side">
+        <div class="panel">
+          <button id="signOutButton" class="btn ghost btn--wide" type="button">Sign out</button>
+          <p id="appointmentsMessage" class="status"></p>
+        </div>
+      </aside>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

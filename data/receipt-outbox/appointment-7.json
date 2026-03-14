@@ -1,0 +1,59 @@
+{
+  "to": "zxc@gmail.com",
+  "subject": "Receipt for appointment #7",
+  "queuedAt": "2026-03-14T10:50:35.702Z",
+  "appointment": {
+    "id": 7,
+    "userId": 1,
+    "date": "2026-03-15",
+    "time": "08:00",
+    "pickupDate": "2026-03-15",
+    "pickupTime": "12:00",
+    "services": [
+      {
+        "id": 1,
+        "name": "Full Service",
+        "description": "Comprehensive inspection, oil change, filters, and fluid top-up.",
+        "price": 280
+      },
+      {
+        "id": 2,
+        "name": "Logbook Service",
+        "description": "Manufacturer guideline service with genuine parts where required.",
+        "price": 220
+      },
+      {
+        "id": 3,
+        "name": "Brake Inspection & Pads",
+        "description": "Brake health check with pad replacement where needed.",
+        "price": 180
+      }
+    ],
+    "subtotal": 680,
+    "tax": 68,
+    "discount": 74.8,
+    "total": 673.2,
+    "promoCode": "SAVE10",
+    "firstName": "FSDSF",
+    "lastName": "SDAGFSDFG",
+    "email": "zxc@gmail.com",
+    "phone": "2132134124",
+    "addressLine1": "321 ffasdf",
+    "addressLine2": "",
+    "suburb": "fdsfa",
+    "stateRegion": "NT",
+    "postcode": "4000",
+    "vehicle": {
+      "make": "DGDGF",
+      "model": "ZDGF",
+      "year": "3555",
+      "series": "ASREAS",
+      "odometer": "10000",
+      "lastServiceDate": "2026-03-04",
+      "registration": "DSF213"
+    },
+    "note": "Customer note: vdfbghgfdh\nVehicle: 3555 DGDGF ZDGF ASREAS\nOdometer KMs: 10000\nLast Service Date: 2026-03-04\nRegistration: DSF213\nDrop-off: 08:00 2026-03-15\nPick-up: 12:00 2026-03-15\nAddress: 321 ffasdf, fdsfa, NT 4000",
+    "cancellationAgreed": true,
+    "createdAt": "2026-03-14T10:50:35.701Z"
+  }
+}

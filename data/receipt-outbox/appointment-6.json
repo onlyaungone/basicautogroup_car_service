@@ -1,0 +1,47 @@
+{
+  "to": "zxc@gmail.com",
+  "subject": "Receipt for appointment #6",
+  "queuedAt": "2026-03-14T10:46:52.430Z",
+  "appointment": {
+    "id": 6,
+    "userId": 1,
+    "date": "2026-03-18",
+    "time": "08:00",
+    "pickupDate": "2026-03-18",
+    "pickupTime": "11:00",
+    "services": [
+      {
+        "id": 2,
+        "name": "Logbook Service",
+        "description": "Manufacturer guideline service with genuine parts where required.",
+        "price": 220
+      }
+    ],
+    "subtotal": 220,
+    "tax": 22,
+    "discount": 0,
+    "total": 242,
+    "promoCode": null,
+    "firstName": "dasd",
+    "lastName": "dasd",
+    "email": "zxc@gmail.com",
+    "phone": "2133213213",
+    "addressLine1": "213 fdwf ds",
+    "addressLine2": "",
+    "suburb": "fddfs",
+    "stateRegion": "NT",
+    "postcode": "3000",
+    "vehicle": {
+      "make": "asd",
+      "model": "asd",
+      "year": "2102",
+      "series": "sada",
+      "odometer": "10000",
+      "lastServiceDate": "2026-03-10",
+      "registration": "das123"
+    },
+    "note": "Customer note: bcvbvdfcb\nVehicle: 2102 asd asd sada\nOdometer KMs: 10000\nLast Service Date: 2026-03-10\nRegistration: das123\nDrop-off: 08:00 2026-03-18\nPick-up: 11:00 2026-03-18\nAddress: 213 fdwf ds, fddfs, NT 3000",
+    "cancellationAgreed": true,
+    "createdAt": "2026-03-14T10:46:52.430Z"
+  }
+}

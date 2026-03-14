@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Account | BASIC.AUTOGROUP</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body data-page="account">
+  <main class="auth-shell">
+    <a class="back-link" href="/index.html">&larr; Back to home</a>
+
+    <section class="auth-card">
+      <div class="auth-tabs">
+        <button id="showSigninTab" class="auth-tab is-active" type="button">Sign in</button>
+        <button id="showSignupTab" class="auth-tab" type="button">Create account</button>
+      </div>
+
+      <form id="signinForm" class="auth-form">
+        <h1>SIGN IN</h1>
+        <label class="auth-label">Email<input name="email" type="email" required autocomplete="email" /></label>
+        <label class="auth-label">Password<input name="password" type="password" required autocomplete="current-password" /></label>
+        <div class="auth-row">
+          <label class="auth-check"><input type="checkbox" /> Remember me</label>
+          <span class="auth-link-muted">Forgot Password?</span>
+        </div>
+        <button class="btn auth-submit" type="submit">SIGN-IN AND CONTINUE</button>
+        <button class="btn auth-google" type="button">Sign in with Google</button>
+        <p id="signinMessage" class="status"></p>
+        <p class="auth-footnote">New here? <button id="switchToSignup" class="auth-link" type="button">Sign up today!</button></p>
+      </form>
+
+      <form id="signupForm" class="auth-form auth-form--hidden">
+        <h1>CREATE ACCOUNT</h1>
+        <label class="auth-label">First name<input name="firstName" required autocomplete="given-name" /></label>
+        <label class="auth-label">Last name<input name="lastName" required autocomplete="family-name" /></label>
+        <label class="auth-label">Email<input name="email" type="email" required autocomplete="email" /></label>
+        <label class="auth-label">Password<input id="signupPassword" name="password" type="password" required minlength="8" autocomplete="new-password" /></label>
+        <div class="password-meter">
+          <div id="passwordMeterFill" class="password-meter__fill"></div>
+        </div>
+        <p id="passwordStrength" class="auth-strength">Strength: Weak</p>
+        <label class="auth-label">Confirm password<input name="confirmPassword" type="password" required autocomplete="new-password" /></label>
+        <label class="auth-check"><input type="checkbox" required /> I confirm I am over 16 years old and agree to the Privacy Policy.</label>
+        <button class="btn auth-submit auth-submit--dark" type="submit">SUBMIT</button>
+        <button class="btn auth-google" type="button">Sign in with Google</button>
+        <p id="signupMessage" class="status"></p>
+        <p class="auth-footnote">Already got an account? <button id="switchToSignin" class="auth-link" type="button">Log in here</button></p>
+      </form>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

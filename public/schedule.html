@@ -12,27 +12,45 @@
       <a class="back-link" href="/services.html">&larr; Back to services</a>
       <div class="page-hero__copy">
         <p class="eyebrow">Step 2 of 3</p>
-        <h1>Choose a date and time</h1>
-        <p>Morning and afternoon slots update live as appointments are taken.</p>
+        <h1>Choose the appointment</h1>
+        <p>Select drop-off first, then choose a pick-up date and time that is at least 3 hours later.</p>
       </div>
     </section>
 
     <section class="journey-layout">
       <div class="journey-main">
         <div class="panel">
-          <label for="dateInput">Select a date</label>
-          <input type="date" id="dateInput" />
+          <h2>Drop-off time</h2>
+          <label for="dropoffDateInput">Drop-off date</label>
+          <input type="date" id="dropoffDateInput" />
           <div class="time-picker__columns">
             <div>
               <h3>Morning</h3>
-              <div id="morningSlots" class="slot-grid"></div>
+              <div id="dropoffMorningSlots" class="slot-grid"></div>
             </div>
             <div>
               <h3>Afternoon</h3>
-              <div id="afternoonSlots" class="slot-grid"></div>
+              <div id="dropoffAfternoonSlots" class="slot-grid"></div>
             </div>
           </div>
-          <p class="hint">Appointments are available from 8:00 AM to 3:00 PM. Choose one slot to continue.</p>
+          <p class="hint">Drop-off appointments are available from 8:00 AM to 3:00 PM.</p>
+        </div>
+
+        <div class="panel">
+          <h2>Pick-up time</h2>
+          <label for="pickupDateInput">Pick-up date</label>
+          <input type="date" id="pickupDateInput" />
+          <div class="time-picker__columns">
+            <div>
+              <h3>Morning</h3>
+              <div id="pickupMorningSlots" class="slot-grid"></div>
+            </div>
+            <div>
+              <h3>Afternoon</h3>
+              <div id="pickupAfternoonSlots" class="slot-grid"></div>
+            </div>
+          </div>
+          <p class="hint">Pick-up must be at least 3 hours after the selected drop-off date and time.</p>
         </div>
       </div>
       <aside class="journey-side">
@@ -42,8 +60,16 @@
         </div>
         <div class="panel panel--dark">
           <div class="summary__row">
-            <span>Appointment</span>
+            <span>Registration</span>
+            <strong id="vehicleSummary">Add registration number</strong>
+          </div>
+          <div class="summary__row">
+            <span>Drop-off</span>
             <strong id="summaryAppointment">Select a date and time</strong>
+          </div>
+          <div class="summary__row">
+            <span>Pick-up</span>
+            <strong id="summaryPickup">Select a date and time</strong>
           </div>
           <div id="summaryServices"></div>
           <div class="summary__row">

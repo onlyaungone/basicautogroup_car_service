@@ -42,6 +42,7 @@ function defaultState() {
       cardNumber: '',
       expiry: '',
       cvc: '',
+      nameOnCard: '',
       policyAgreed: false
     }
   };
@@ -341,6 +342,61 @@ function formatExpiry(value) {
   return digits.length <= 2 ? digits : `${digits.slice(0, 2)}/${digits.slice(2)}`;
 }
 
+function formatCardNumber(value) {
+  const digits = digitsOnly(value, 16);
+  return digits.replace(/(\d{4})(?=\d)/g, '$1 ').trim();
+}
+
+function getPaymentFieldElement(fieldName) {
+  const input = document.querySelector(`[name="${fieldName}"]`);
+  return input ? input.closest('.payment-field') : null;
+}
+
+function setPaymentFieldState(fieldName, stateName, message) {
+  const field = getPaymentFieldElement(fieldName);
+  if (!field) return;
+  field.classList.remove('is-valid', 'is-invalid');
+  if (stateName) field.classList.add(stateName);
+  const help = field.querySelector('.payment-help');
+  if (help && message) help.textContent = message;
+}
+
+function validatePaymentField(fieldName, value) {
+  if (!value) {
+    if (fieldName === 'cardNumber') setPaymentFieldState(fieldName, '', 'Enter a valid card number');
+    if (fieldName === 'expiry') setPaymentFieldState(fieldName, '', 'Front of card in MM/YY format');
+    if (fieldName === 'cvc') setPaymentFieldState(fieldName, '', '3 digits on back of card');
+    if (fieldName === 'nameOnCard') setPaymentFieldState(fieldName, '', 'Enter the cardholder name');
+    return;
+  }
+
+  if (fieldName === 'cardNumber') {
+    const valid = digitsOnly(value, 16).length === 16;
+    setPaymentFieldState(fieldName, valid ? 'is-valid' : 'is-invalid', valid ? 'Card number looks valid' : 'Enter a valid card number');
+    return;
+  }
+  if (fieldName === 'expiry') {
+    const valid = /^(0[1-9]|1[0-2])\/[0-9]{2}$/.test(value);
+    setPaymentFieldState(fieldName, valid ? 'is-valid' : 'is-invalid', valid ? 'Expiry date looks valid' : 'Enter a valid expiry date');
+    return;
+  }
+  if (fieldName === 'cvc') {
+    const valid = /^[0-9]{3,4}$/.test(value);
+    setPaymentFieldState(fieldName, valid ? 'is-valid' : 'is-invalid', valid ? 'Security code looks valid' : 'Enter a valid security code');
+    return;
+  }
+  if (fieldName === 'nameOnCard') {
+    const valid = value.trim().length >= 2;
+    setPaymentFieldState(fieldName, valid ? 'is-valid' : 'is-invalid', valid ? 'Name on card looks valid' : 'Enter the cardholder name');
+  }
+}
+
+function validateAllPaymentFields(form) {
+  ['cardNumber', 'expiry', 'cvc', 'nameOnCard'].forEach(fieldName => {
+    validatePaymentField(fieldName, form.elements[fieldName].value);
+  });
+}
+
 function toggleService(id) {
   state.selectedServiceIds = state.selectedServiceIds.includes(id)
     ? state.selectedServiceIds.filter(serviceId => serviceId !== id)
@@ -575,15 +631,22 @@ function bindCheckoutFormatting(form) {
     updateCustomerState(form);
   });
   form.elements.cardNumber.addEventListener('input', event => {
-    event.target.value = digitsOnly(event.target.value, 16);
+    event.target.value = formatCardNumber(event.target.value);
+    validatePaymentField('cardNumber', event.target.value);
     updateCustomerState(form);
   });
   form.elements.expiry.addEventListener('input', event => {
     event.target.value = formatExpiry(event.target.value);
+    validatePaymentField('expiry', event.target.value);
     updateCustomerState(form);
   });
   form.elements.cvc.addEventListener('input', event => {
     event.target.value = digitsOnly(event.target.value, 4);
+    validatePaymentField('cvc', event.target.value);
+    updateCustomerState(form);
+  });
+  form.elements.nameOnCard.addEventListener('input', event => {
+    validatePaymentField('nameOnCard', event.target.value);
     updateCustomerState(form);
   });
 }
@@ -611,6 +674,7 @@ async function renderCheckoutPage() {
   const form = document.getElementById('checkoutForm');
   hydrateCheckoutForm(form);
   bindCheckoutFormatting(form);
+  validateAllPaymentFields(form);
 
   const togglePolicy = document.getElementById('togglePolicy');
   const policyFull = document.getElementById('policyFull');
@@ -664,7 +728,8 @@ async function renderCheckoutPage() {
         payment: {
           cardNumber: state.customer.cardNumber,
           expiry: state.customer.expiry,
-          cvc: state.customer.cvc
+          cvc: state.customer.cvc,
+          nameOnCard: state.customer.nameOnCard
         },
         promoCode: state.appliedPromo ? state.appliedPromo.code : ''
       })

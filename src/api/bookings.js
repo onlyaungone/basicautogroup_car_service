@@ -82,7 +82,7 @@ async function handleBookings(req, res) {
     if (!cancellationAgreed) {
       return sendJson(res, 400, { error: 'Please acknowledge the cancellation policy.' });
     }
-    if (!payment || !payment.cardNumber || !payment.expiry || !payment.cvc) {
+    if (!payment || !payment.cardNumber || !payment.expiry || !payment.cvc || !payment.nameOnCard) {
       return sendJson(res, 400, { error: 'Payment details are required.' });
     }
     if (!/^[0-9]{16}$/.test(cardDigits) || !/^(0[1-9]|1[0-2])\/[0-9]{2}$/.test(String(payment.expiry)) || !/^[0-9]{3,4}$/.test(String(payment.cvc))) {

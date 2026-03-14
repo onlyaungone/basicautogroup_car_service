@@ -107,6 +107,22 @@ main {
   margin: 0;
 }
 
+.footer-meta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footer-meta img {
+  width: 24px;
+  height: 16px;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(19, 34, 56, 0.08);
+}
+
 .hero {
   padding: 84px 24px;
   position: relative;
